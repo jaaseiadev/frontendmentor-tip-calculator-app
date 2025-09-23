@@ -1,103 +1,86 @@
-import Image from "next/image";
-
 export default function Home() {
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <main className="min-h-screen grid place-items-center bg-[#c5e4e7] p-6">
+      <div className="w-full max-w-5xl">
+        <h1 className="text-center text-[#5e7a7d] tracking-[0.6em] text-sm md:text-base mb-8 font-semibold">
+          SPLITTER
+        </h1>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+        {/* Card */}
+        <section className="bg-white rounded-2xl p-6 md:p-8 shadow-[0_32px_43px_rgba(79,166,175,0.2)] grid gap-6 md:gap-8 md:grid-cols-2">
+          {/* Left column */}
+          <div className="flex flex-col gap-6">
+            {/* Bill */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="bill" className="text-[#5e7a7d] text-sm font-semibold">
+                Bill
+              </label>
+              <input
+                id="bill"
+                type="number"
+                placeholder="0"
+                className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md px-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
+              />
+            </div>
+
+            {/* Select Tip % */}
+            <div className="flex flex-col gap-3">
+              <span className="text-[#5e7a7d] text-sm font-semibold">Select Tip %</span>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                <button type="button" className="bg-[#00494d] text-white font-bold text-xl rounded-md py-2.5">5%</button>
+                <button type="button" className="bg-[#00494d] text-white font-bold text-xl rounded-md py-2.5">10%</button>
+                <button type="button" className="bg-[#00494d] text-white font-bold text-xl rounded-md py-2.5">15%</button>
+                <button type="button" className="bg-[#00494d] text-white font-bold text-xl rounded-md py-2.5">25%</button>
+                <button type="button" className="bg-[#00494d] text-white font-bold text-xl rounded-md py-2.5">50%</button>
+                <input
+                  type="number"
+                  placeholder="Custom"
+                  className="bg-[#f3f9fa] text-[#00494d] text-xl font-bold rounded-md px-4 py-2.5 text-center border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
+                  aria-label="Custom tip"
+                />
+              </div>
+            </div>
+
+            {/* Number of People */}
+            <div className="flex flex-col gap-2">
+              <label htmlFor="people" className="text-[#5e7a7d] text-sm font-semibold">
+                Number of People
+              </label>
+              <input
+                id="people"
+                type="number"
+                placeholder="0"
+                className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md px-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
+              />
+            </div>
+          </div>
+
+          {/* Right column */}
+          <div className="bg-[#00494d] rounded-xl p-6 md:p-8 flex flex-col gap-6 md:gap-8 justify-between">
+            <div className="flex flex-col gap-6">
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col leading-tight">
+                  <span className="text-white font-semibold">Tip Amount</span>
+                  <span className="text-[#7f9c9f] text-xs font-semibold">/ person</span>
+                </div>
+                <div className="text-[#26c0ab] text-4xl md:text-5xl font-extrabold">$0.00</div>
+              </div>
+
+              <div className="flex items-center justify-between">
+                <div className="flex flex-col leading-tight">
+                  <span className="text-white font-semibold">Total</span>
+                  <span className="text-[#7f9c9f] text-xs font-semibold">/ person</span>
+                </div>
+                <div className="text-[#26c0ab] text-4xl md:text-5xl font-extrabold">$0.00</div>
+              </div>
+            </div>
+
+            <button type="button" className="w-full bg-[#26c0ab] text-[#00494d] font-extrabold tracking-wider rounded-md py-3 disabled:opacity-50">
+              RESET
+            </button>
+          </div>
+        </section>
+      </div>
+    </main>
   );
 }
