@@ -68,11 +68,10 @@ export default function Home() {
   return (
     <main className="min-h-screen grid place-items-center bg-[#c5e4e7] p-6">
       <div className="w-full max-w-5xl">
-        <h1 className="text-center text-[#5e7a7d] tracking-[0.6em] text-sm md:text-base mb-8 font-semibold">
-          SPLI
-          <br></br>
-          TTER
-        </h1>
+        <div className="flex justify-center mb-8">
+          {/* Logo */}
+          <img src="/images/logo.svg" alt="Splitter" className="h-8 md:h-10" />
+        </div>
 
         {/* Card */}
         <section className="bg-white rounded-2xl p-6 md:p-8 shadow-[0_32px_43px_rgba(79,166,175,0.2)] grid gap-6 md:gap-8 md:grid-cols-2">
@@ -83,16 +82,19 @@ export default function Home() {
               <label htmlFor="bill" className="text-[#5e7a7d] text-sm font-semibold">
                 Bill
               </label>
-              <input
-                id="bill"
-                type="number"
-                placeholder="0"
-                inputMode="decimal"
-                min={0}
-                value={bill}
-                onChange={(e) => setBill(e.target.value)}
-                className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md px-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
-              />
+              <div className="relative">
+                <img src="/images/icon-dollar.svg" alt="" aria-hidden className="absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  id="bill"
+                  type="number"
+                  placeholder="0"
+                  inputMode="decimal"
+                  min={0}
+                  value={bill}
+                  onChange={(e) => setBill(e.target.value)}
+                  className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md pl-10 pr-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
+                />
+              </div>
             </div>
 
             {/* Select Tip % */}
@@ -136,16 +138,19 @@ export default function Home() {
               <label htmlFor="people" className="text-[#5e7a7d] text-sm font-semibold">
                 Number of People
               </label>
-              <input
-                id="people"
-                type="number"
-                placeholder="0"
-                inputMode="numeric"
-                min={0}
-                value={people}
-                onChange={(e) => setPeople(e.target.value)}
-                className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md px-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
-              />
+              <div className="relative">
+                <img src="/images/icon-person.svg" alt="" aria-hidden className="absolute left-4 top-1/2 -translate-y-1/2" />
+                <input
+                  id="people"
+                  type="number"
+                  placeholder="0"
+                  inputMode="numeric"
+                  min={0}
+                  value={people}
+                  onChange={(e) => setPeople(e.target.value)}
+                  className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md pl-10 pr-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
+                />
+              </div>
             </div>
           </div>
 
