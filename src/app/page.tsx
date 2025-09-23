@@ -10,13 +10,11 @@ function toNumber(v: string): number {
 }
 
 export default function Home() {
-  // Form state (keep as strings to preserve empty inputs while typing)
   const [bill, setBill] = useState<string>("");
   const [people, setPeople] = useState<string>("");
   const [customTip, setCustomTip] = useState<string>("");
   const [tipPercent, setTipPercent] = useState<number | null>(null);
 
-  // When custom tip has a value, it overrides button selection
   const effectiveTip = useMemo<number>(() => {
     const custom = toNumber(customTip);
     if (customTip !== "" && custom >= 0) return custom;
@@ -55,7 +53,6 @@ export default function Home() {
 
   const onChangeCustom = (v: string) => {
     setCustomTip(v);
-    // Clear preset selection when using custom
     setTipPercent(null);
   };
 
@@ -65,6 +62,7 @@ export default function Home() {
     setCustomTip("");
     setTipPercent(null);
   };
+  const isZeroPeople = people.trim() !== "" && toNumber(people) === 0;
   return (
     <main className="min-h-screen grid place-items-center bg-[#c5e4e7] p-6">
       <div className="w-full max-w-5xl">
@@ -135,9 +133,16 @@ export default function Home() {
 
             {/* Number of People */}
             <div className="flex flex-col gap-2">
-              <label htmlFor="people" className="text-[#5e7a7d] text-sm font-semibold">
-                Number of People
-              </label>
+              <div className="flex items-center justify-between">
+                <label htmlFor="people" className="text-[#5e7a7d] text-sm font-semibold">
+                  Number of People
+                </label>
+                {isZeroPeople && (
+                  <span id="people-error" className="text-orange-500 text-sm font-semibold">
+                    Can’t be zero
+                  </span>
+                )}
+              </div>
               <div className="relative">
                 <img src="/images/icon-person.svg" alt="" aria-hidden className="absolute left-4 top-1/2 -translate-y-1/2" />
                 <input
@@ -148,7 +153,11 @@ export default function Home() {
                   min={0}
                   value={people}
                   onChange={(e) => setPeople(e.target.value)}
-                  className="w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md pl-10 pr-4 py-3 text-right border-2 border-transparent focus:outline-none focus:border-[#26c0ab]"
+                  aria-invalid={isZeroPeople}
+                  aria-describedby={isZeroPeople ? "people-error" : undefined}
+                  className={`w-full bg-[#f3f9fa] text-[#00494d] text-2xl font-bold rounded-md pl-10 pr-4 py-3 text-right border-2 focus:outline-none ${
+                    isZeroPeople ? "border-orange-500 focus:border-orange-500" : "border-transparent focus:border-[#26c0ab]"
+                  }`}
                 />
               </div>
             </div>
