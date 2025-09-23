@@ -3,7 +3,9 @@ export default function Home() {
     <main className="min-h-screen grid place-items-center bg-[#c5e4e7] p-6">
       <div className="w-full max-w-5xl">
         <h1 className="text-center text-[#5e7a7d] tracking-[0.6em] text-sm md:text-base mb-8 font-semibold">
-          SPLITTER
+          SPLI
+          <br></br>
+          TTER
         </h1>
 
         {/* Card */}
